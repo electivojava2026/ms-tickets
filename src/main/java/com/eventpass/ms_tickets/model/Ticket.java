@@ -3,10 +3,16 @@ package com.eventpass.ms_tickets.model;
 import java.time.LocalDateTime;
 
 import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
 @Table(name = "tickets")
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Ticket {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -27,3 +33,4 @@ public class Ticket {
     private LocalDateTime createdAt;
 
 }
+
