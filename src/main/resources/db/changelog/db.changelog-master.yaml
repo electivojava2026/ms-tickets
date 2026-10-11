@@ -38,3 +38,62 @@ databaseChangeLog:
                   type: TIMESTAMP
                   constraints:
                     nullable: false
+
+  - changeSet:
+      id: 2-insert-default-tickets
+      author: eventpass
+      changes:
+        - insert:
+            tableName: tickets
+            columns:
+              - column:
+                  name: ticket_number
+                  value: "TKT-FEST0001"
+              - column:
+                  name: event_id
+                  valueNumeric: 1
+              - column:
+                  name: order_id
+                  valueNumeric: 1
+              - column:
+                  name: status
+                  value: "GENERADO"
+              - column:
+                  name: created_at
+                  value: "2025-10-01 10:05:00"
+        - insert:
+            tableName: tickets
+            columns:
+              - column:
+                  name: ticket_number
+                  value: "TKT-FEST0002"
+              - column:
+                  name: event_id
+                  valueNumeric: 1
+              - column:
+                  name: order_id
+                  valueNumeric: 2
+              - column:
+                  name: status
+                  value: "GENERADO"
+              - column:
+                  name: created_at
+                  value: "2025-10-02 11:35:00"
+        - insert:
+            tableName: tickets
+            columns:
+              - column:
+                  name: ticket_number
+                  value: "TKT-CONF0001"
+              - column:
+                  name: event_id
+                  valueNumeric: 2
+              - column:
+                  name: order_id
+                  valueNumeric: 3
+              - column:
+                  name: status
+                  value: "RESERVADO"
+              - column:
+                  name: created_at
+                  value: "2025-10-03 09:20:00"
