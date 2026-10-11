@@ -29,6 +29,12 @@ public class TicketController {
 
     }
 
+    // Solo STAFF y la cuenta de servicio de ms-ordenes (que valida que la orden sea del comprador)
+    @GetMapping("/order/{orderId}")
+    public List<TicketResponse> getTicketsByOrder(@PathVariable Long orderId) {
+        return ticketService.findByOrderId(orderId);
+    }
+
     @PostMapping("/generate")
     @ResponseStatus(HttpStatus.CREATED)
     public TicketResponse generateTicket(

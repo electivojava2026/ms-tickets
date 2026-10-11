@@ -24,6 +24,10 @@ public class TicketService {
         return ticketRepository.findAll();
     }
 
+    public List<TicketResponse> findByOrderId(Long orderId) {
+        return ticketRepository.findByOrderId(orderId).stream().map(this::toResponse).toList();
+    }
+
     public TicketResponse generateTicket(Long eventId, Long orderId) {
         Ticket ticket = Ticket.builder()
                 .ticketNumber(generateTicketNumber())
